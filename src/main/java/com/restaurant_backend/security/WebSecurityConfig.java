@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+
 
 //Clase S7
 @Configuration
@@ -52,16 +52,16 @@ public class WebSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(antMatcher("/login")).permitAll()
-                        .requestMatchers(antMatcher("/mail/**")).permitAll()
-                        .requestMatchers(antMatcher("/usuarios/**")).permitAll()
-                        .requestMatchers(antMatcher("/roles/**")).permitAll()
-                        .requestMatchers(antMatcher("/menus/**")).permitAll()
-                        .requestMatchers(antMatcher("/categorias/**")).permitAll()
-                        .requestMatchers(antMatcher("/productos/**")).permitAll()
-                        .requestMatchers(antMatcher("/pedidos/**")).permitAll()
-                        .requestMatchers(antMatcher("/ventas/**")).permitAll()
-                        .requestMatchers(antMatcher("/mesas/**")).permitAll()
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/mail/**").permitAll()
+                        .requestMatchers("/usuarios/**").permitAll()
+                        .requestMatchers("/roles/**").permitAll()
+                        .requestMatchers("/menus/**").permitAll()
+                        .requestMatchers("/categorias/**").permitAll()
+                        .requestMatchers("/productos/**").permitAll()
+                        .requestMatchers("/pedidos/**").permitAll()
+                        .requestMatchers("/ventas/**").permitAll()
+                        .requestMatchers("/mesas/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable)
