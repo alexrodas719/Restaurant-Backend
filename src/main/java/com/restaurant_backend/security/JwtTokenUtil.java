@@ -3,7 +3,7 @@ package com.restaurant_backend.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Value; // Aunque lo importamos, no lo usamos
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -22,8 +22,9 @@ public class JwtTokenUtil implements Serializable {
 
     private final long JWT_TOKEN_VALIDITY = 5 * 60 * 60 * 1000; //5 horas;
 
-    @Value("${jwt.secret}")
-    private String secret;
+
+    private String secret = "EstaEsUnaClaveSuperSecretaParaMiRestauranteBackend2025_Segura";
+
 
     //Agregar data al Payload/Claims
     public String generateToken(UserDetails userDetails) {
